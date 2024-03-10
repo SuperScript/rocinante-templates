@@ -1,1 +1,3 @@
-PKG doas
+PKG bastille daemontools-encore gh gnupg iosevka jq neovim nerd-fonts pinentry-curses sshpass ucspi-ipc zip
+
+
