@@ -1,3 +1,5 @@
+PKG x11/xorg
+
 PKG x11-wm/bspwm-devel x11/sxhkd
 PKG textproc/fzf
 PKG x11/sterm
