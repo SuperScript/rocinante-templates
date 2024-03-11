@@ -17,6 +17,6 @@ PKG iosevka nerd-fonts
 # network
 SYSRC cloned_interfaces+=lo1
 SYSRC cloned_interfaces+=bridge0
-SYSRC ifconfig_bridge0='"inet 10.0.0.1/16 addm wlan0 up"
+SYSRC ifconfig_bridge0="inet 10.0.0.1/16 addm wlan0 up"
 
 
