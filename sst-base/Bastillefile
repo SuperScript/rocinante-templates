@@ -1,3 +1,22 @@
-PKG bastille daemontools-encore gh gnupg iosevka jq neovim nerd-fonts pinentry-curses sshpass ucspi-ipc zip
+# basics
+PKG bastille
+PKG daemontools-encore ucspi-ipc
+
+# git
+PKG git gh
+
+# encryption
+PKG gnupg pinentry-curses sshpass
+
+# tools
+PKG gmake zip
+
+# fonts
+PKG iosevka nerd-fonts
+
+# network
+SYSRC cloned_interfaces+=lo1
+SYSRC cloned_interfaces+=bridge0
+SYSRC ifconfig_bridge0='"inet 10.0.0.1/16 addm wlan0 up"
 
 
