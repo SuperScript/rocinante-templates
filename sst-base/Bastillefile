@@ -1,22 +1,21 @@
 # basics
-PKG bastille
-PKG daemontools-encore ucspi-ipc
+PKG sysutils/bastille
+PKG sysutils/daemontools-encore sysutils/ucspi-ipc
 
 # git
-PKG git gh
+PKG devel/git devel/gh
 
 # encryption
-PKG gnupg pinentry-curses sshpass
+PKG security/gnupg security/pinentry-curses security/sshpass
 
 # tools
-PKG gmake zip
-
-# fonts
-PKG iosevka nerd-fonts
+PKG devel/gmake
+PKG archivers/zip
 
 # network
 SYSRC cloned_interfaces+=lo1
 SYSRC cloned_interfaces+=bridge0
 SYSRC ifconfig_bridge0="inet 10.0.0.1/16 addm wlan0 up"
+SERVICE netif restart
 
 

@@ -1,0 +1,7 @@
+# editors
+PKG editors/neovim
+
+# FIXME: should take from local pkg repo for latest version
+PKG editors/kakoune
+
+
