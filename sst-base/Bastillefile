@@ -18,4 +18,7 @@ SYSRC cloned_interfaces+=bridge0
 SYSRC ifconfig_bridge0="inet 10.0.0.1/16 addm wlan0 up"
 SERVICE netif restart
 
+CP etc /
+
+CMD sysctl -f /etc/sysctl.conf
 

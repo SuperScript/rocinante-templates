@@ -1,0 +1,71 @@
+# $FreeBSD$
+#
+# Host Database
+#
+# This file should contain the addresses and aliases for local hosts that
+# share this file.  Replace 'my.domain' below with the domainname of your
+# machine.
+#
+# In the presence of the domain name service or NIS, this file may
+# not be consulted at all; see /etc/nsswitch.conf for the resolution order.
+#
+#
+::1			localhost localhost.my.domain
+127.0.0.1		localhost localhost.my.domain
+#
+# Imaginary network.
+#10.0.0.2		myname.my.domain myname
+#10.0.0.3		myfriend.my.domain myfriend
+#
+# According to RFC 1918, you can use the following IP networks for
+# private nets which will never be connected to the Internet:
+#
+#	10.0.0.0	-   10.255.255.255
+#	172.16.0.0	-   172.31.255.255
+#	192.168.0.0	-   192.168.255.255
+#
+# In case you want to be able to connect to the Internet, you need
+# real official assigned numbers.  Do not try to invent your own network
+# numbers but instead get one from your network provider (if any) or
+# from your regional registry (ARIN, APNIC, LACNIC, RIPE NCC, or AfriNIC.)
+#
+# Bastille start
+10.0.0.2 v-pkg
+10.0.0.3 v-svc-pkg
+10.0.0.4 s-tech
+10.0.0.5 node16
+10.0.0.6 s-api
+10.0.0.7 AVAILABLE_0
+10.0.0.8 s-intrnl
+10.0.0.9 v-phero
+10.0.0.10 v-db
+10.0.0.11 v-db-ev
+10.0.0.12 AVAILABLE_1
+10.0.0.13 s-sst
+10.0.0.14 elixir
+10.0.0.15 node12
+10.0.0.16 v-graphql
+10.0.0.17 v-db-ev-c
+10.0.0.18 v-auth
+10.0.0.19 v-ch-ev-TBD
+10.0.0.20 node18
+10.0.0.21 v-eth-v
+10.0.0.22 v-fi-up
+10.0.0.23 v-ofac
+10.0.0.24 v-tez-m
+10.0.0.25 v-webhook
+10.0.0.26 test
+10.0.0.27 v-eth-g
+10.0.0.28 infra
+10.0.0.29 ai
+10.0.0.30 AVAILABLE_2
+10.0.0.31 s-repo
+10.0.0.32 que
+10.0.0.33 v-mdlwr
+10.0.0.34 v-eth-m
+10.0.0.35 pgadmin4
+10.0.0.36 golang
+10.0.0.37 rabbitmq
+10.0.0.38 kafka
+10.0.0.40 test_vnet
+# Bastille end
