@@ -1,16 +1,41 @@
-# basics
+# system
+# Needs reboot, so handle in post-install shell
+# CMD freebsd-update fetch-install
+
+CMD zfs set atime=off zroot
+
+# ssh
+CMD rm /etc/ssh/ssh_host_*
+SYSRC sshd_dsa_enable="NO"
+SYSRC sshd_ecdsa_enable="NO"
+SYSRC sshd_ed25519_enable="YES"
+SYSRC sshd_rsa_enable="YES"
+SERVICE sshd keygen
+SERVICE sshd restart
+
+
+# packages
 PKG sysutils/bastille
-PKG sysutils/daemontools-encore sysutils/ucspi-ipc
+SYSRC bastille_enable=YES
+SYSRC bastille_rcorder=YES
+SYSRC -f /usr/local/etc/bastille/bastille.conf bastille_zfs_enable="YES"
+SYSRC -f /usr/local/etc/bastille/bastille.conf bastille_zfs_zpool="zroot"
 
-# git
-PKG devel/git devel/gh
+PKG sysutils/daemontools-encore sysutils/ucspi-ipc sysutils/ucspi-tcp sysutils/htop
 
-# encryption
+PKG devel/git devel/gh devel/gmake
+
 PKG security/gnupg security/pinentry-curses security/sshpass
 
-# tools
-PKG devel/gmake
 PKG archivers/zip
+PKG deskutils/remind
+
+
+# microcode updates
+PKG sysutils/cpu-microcode sysutils/cpu-microcode-rc
+SYSRC  microcode_update_enable="YES"
+SERVICE microcode_update start
+
 
 # network
 SYSRC cloned_interfaces+=lo1
@@ -19,6 +44,18 @@ SYSRC ifconfig_bridge0="inet 10.0.0.1/16 addm wlan0 up"
 SERVICE netif restart
 
 CP etc /
+CP usr /
 
 CMD sysctl -f /etc/sysctl.conf
+
+
+# time
+
+SYSRC ntpd_enable="YES"
+SYSRC ntpd_sync_on_start="YES"
+SERVICE ntpd restart
+
+
+# users
+CMD touch /usr/share/skel/dot.hushlogin
 
