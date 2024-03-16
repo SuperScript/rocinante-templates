@@ -18,9 +18,11 @@ SERVICE sshd restart
 PKG sysutils/bastille
 SYSRC -f /usr/local/etc/bastille/bastille.conf bastille_zfs_enable="YES"
 SYSRC -f /usr/local/etc/bastille/bastille.conf bastille_zfs_zpool="zroot"
-CMD bastille bootstrap 14.0-RELEASE update
-CMD bastille bootstrap 13.2-RELEASE update
-CMD bastille bootstrap 13.3-RELEASE update
+
+# Prohibitively slow:
+# CMD bastille bootstrap 14.0-RELEASE update
+# CMD bastille bootstrap 13.2-RELEASE update
+# CMD bastille bootstrap 13.3-RELEASE update
 
 PKG sysutils/daemontools-encore sysutils/ucspi-ipc sysutils/ucspi-tcp sysutils/htop
 
