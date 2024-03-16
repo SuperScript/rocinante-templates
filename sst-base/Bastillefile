@@ -16,20 +16,17 @@ SERVICE sshd restart
 
 # packages
 PKG sysutils/bastille
-SYSRC bastille_enable=YES
-SYSRC bastille_rcorder=YES
 SYSRC -f /usr/local/etc/bastille/bastille.conf bastille_zfs_enable="YES"
 SYSRC -f /usr/local/etc/bastille/bastille.conf bastille_zfs_zpool="zroot"
+CMD bastille bootstrap 14.0-RELEASE update
+CMD bastille bootstrap 13.2-RELEASE update
+CMD bastille bootstrap 13.3-RELEASE update
 
 PKG sysutils/daemontools-encore sysutils/ucspi-ipc sysutils/ucspi-tcp sysutils/htop
 
 PKG devel/git devel/gh devel/gmake
 
 PKG security/gnupg security/pinentry-curses security/sshpass
-
-PKG archivers/zip
-PKG deskutils/remind
-
 
 # microcode updates
 PKG sysutils/cpu-microcode sysutils/cpu-microcode-rc
@@ -38,6 +35,9 @@ SERVICE microcode_update start
 
 
 # network
+CMD mkdir -p -m 0700 /etc/wpa_supplicant
+CMD test -f /etc/wpa_supplicant/wpa_supplicant.conf || cp /etc/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+SYSRC wpa_supplicant_conf_file="/etc/wpa_supplicant/wpa_supplicant.conf"
 SYSRC cloned_interfaces+=lo1
 SYSRC cloned_interfaces+=bridge0
 SYSRC ifconfig_bridge0="inet 10.0.0.1/16 addm wlan0 up"
@@ -47,6 +47,14 @@ CP etc /
 CP usr /
 
 CMD sysctl -f /etc/sysctl.conf
+SYSRC pf_enable="YES"
+SYSRC gateway_enable="YES"
+SERVICE pf restart
+
+
+# ssh
+CMD mkdir -p -m 0700 /root/.ssh
+CMD test -r "/root/.ssh/rocinante@$(hostname).pub" || ssh-keygen -t ed25519 -f "/root/.ssh/rocinante@$(hostname)" -N ''
 
 
 # time
@@ -56,6 +64,10 @@ SYSRC ntpd_sync_on_start="YES"
 SERVICE ntpd restart
 
 
-# users
+# other
 CMD touch /usr/share/skel/dot.hushlogin
+SYSRC sendmail_enable="NONE"
+SYSRC powerd_enable="YES"
+SYSRC clear_tmp_enable="YES"
+
 
