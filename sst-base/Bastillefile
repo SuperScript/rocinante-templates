@@ -58,7 +58,7 @@ SERVICE pf restart
 CMD mkdir -p -m 0700 /root/.ssh
 CMD test -r "/root/.ssh/rocinante@$(hostname).pub" || ssh-keygen -t ed25519 -f "/root/.ssh/rocinante@$(hostname)" -N ''
 CP root/ssh/rocinante@sst.pub /root/.ssh/
-CMD ssh-copy-id /root/.ssh/rocinante@sst.pub localhost
+CMD test -f /root/.ssh/authorized_keys || cp /root/.ssh/rocinante@sst.pub /root/.ssh/authorized_keys
 
 
 # time
