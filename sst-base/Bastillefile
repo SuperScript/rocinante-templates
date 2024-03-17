@@ -3,6 +3,7 @@
 # CMD freebsd-update fetch-install
 
 ARG SYSADMIN_EMAIL=web+rocinante@g.superscript.com
+ARG SYSADMIN_HOST=g.superscript.com
 
 CMD zfs set atime=off zroot
 
@@ -56,13 +57,12 @@ SYSRC gateway_enable="YES"
 SERVICE pf restart
 
 # make sure name resolution works
-CMD seq 1 10 | while read x; do drill freebsd.com A && break || sleep 5; done
+CMD seq 1 20 | while read x; do drill g.superscript.com MX | grep -q NOERROR && break || sleep 5; done
 
 # ssh
 CMD mkdir -p -m 0700 /root/.ssh
 CMD test -r "/root/.ssh/rocinante@$(hostname).pub" || ssh-keygen -t ed25519 -f "/root/.ssh/rocinante@$(hostname)" -N ''
 CMD mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' < "/root/.ssh/rocinante@$(hostname).pub"
-CMD echo mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' >> /tmp/mail.cmd < "/root/.ssh/rocinante@$(hostname).pub"
 
 # time
 
