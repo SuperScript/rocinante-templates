@@ -59,8 +59,8 @@ SERVICE pf restart
 # ssh
 CMD mkdir -p -m 0700 /root/.ssh
 CMD test -r "/root/.ssh/rocinante@$(hostname).pub" || ssh-keygen -t ed25519 -f "/root/.ssh/rocinante@$(hostname)" -N ''
-CMD mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' < cat "/root/.ssh/rocinante@$(hostname).pub"
-CMD echo mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' >> /tmp/mail.cmd < cat "/root/.ssh/rocinante@$(hostname).pub"
+CMD mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' < "/root/.ssh/rocinante@$(hostname).pub"
+CMD echo mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' >> /tmp/mail.cmd < "/root/.ssh/rocinante@$(hostname).pub"
 
 # time
 
