@@ -55,6 +55,8 @@ SYSRC pf_enable="YES"
 SYSRC gateway_enable="YES"
 SERVICE pf restart
 
+# make sure name resolution works
+CMD seq 1 10 | while read x; do drill freebsd.com A && break || sleep 5; done
 
 # ssh
 CMD mkdir -p -m 0700 /root/.ssh
