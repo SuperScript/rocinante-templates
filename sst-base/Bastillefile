@@ -2,7 +2,7 @@
 # Needs reboot, so handle in post-install shell
 # CMD freebsd-update fetch-install
 
-ARG SYSADMIN_EMAIL="web+rocinante@g.superscript.com"
+ARG SYSADMIN_EMAIL=web+rocinante@g.superscript.com
 
 CMD zfs set atime=off zroot
 
