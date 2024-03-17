@@ -2,7 +2,7 @@
 # Needs reboot, so handle in post-install shell
 # CMD freebsd-update fetch-install
 
-ARG SYSADMIN_EMAIL='web+rocinante@g.superscript.com'
+ARG SYSADMIN_EMAIL="web+rocinante@g.superscript.com"
 
 CMD zfs set atime=off zroot
 
@@ -59,8 +59,8 @@ SERVICE pf restart
 # ssh
 CMD mkdir -p -m 0700 /root/.ssh
 CMD test -r "/root/.ssh/rocinante@$(hostname).pub" || ssh-keygen -t ed25519 -f "/root/.ssh/rocinante@$(hostname)" -N ''
-CMD cat "/root/.ssh/rocinante@$(hostname).pub" | mail -s "rocinante@$(hostname)" "${SYSADMIN_EMAIL}"
-
+CMD mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' < cat "/root/.ssh/rocinante@$(hostname).pub"
+CMD echo mail -s "rocinante@$(hostname)" '${SYSADMIN_EMAIL}' >> /tmp/mail.cmd < cat "/root/.ssh/rocinante@$(hostname).pub"
 
 # time
 
