@@ -1,7 +1,7 @@
 # Send ssh key to enable use of private repos
 ARG OP=clean
 
-CMD test create = '${OP}' && test -n '${EMAIL}' || { printf 'bootstrap: EMAIL not set\n' >&2; exit 100; }
+CMD test create != '${OP}' || test -n '${EMAIL}' || printf 'bootstrap: EMAIL not set\n' >&2; exit 100
 
 PKG sshpass
 
