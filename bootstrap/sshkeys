@@ -1,0 +1,28 @@
+#!/bin/sh
+
+key="/root/.ssh/rocinante@$(hostname -s)"
+
+do_clean() {
+  rm -f "${key}" "${key}.pub" "${key}.pw"
+}
+
+do_create() {
+  do_clean "$@"
+  mkdir -p -m 0700 /root/.ssh
+  openssl rand -base64 20 > "${key}.pw"
+  sshpass -f "${key}.pw" ssh-keygen -t ed25519 -f "${key}"
+  printf '%s\n' "${key}.pub"
+}
+
+case "$1" in
+  clean|create)
+    "do_$@"
+    exit 0
+    ;;
+
+  *)
+    echo "unrecognized command: $1"
+    exit 100
+    ;;
+esac
+
