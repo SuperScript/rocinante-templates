@@ -1,13 +1,13 @@
 # Send ssh key to enable use of private repos
 ARG OP=clean
 
-CMD test create != '${OP}' || test -n '${EMAIL}' || printf 'bootstrap: EMAIL not set\n' >&2; exit 100
+CMD if test create = '${OP}'; then test -n '${EMAIL}' || printf 'bootstrap: EMAIL not set\n' >&2; exit 100; fi
 
 PKG sshpass
 
 CP sshkeys /tmp/
 
-CMD test clean = '${OP}' && /tmp/sshkeys clean
+CMD if test clean = '${OP}'; then /tmp/sshkeys clean; fi
 
-CMD test create = '${OP}' && mail -s "Pubkey for $(hostname)" '${EMAIL}' < "$(/tmp/sshkeys create)"
+CMD if test create = '${OP}'; then mail -s "Pubkey for $(hostname)" '${EMAIL}' < "$(/tmp/sshkeys create)"; fi
 
