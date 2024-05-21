@@ -5,8 +5,6 @@ ARG EMAIL=
 CMD test clean != '${OP}' || test -n '${EMAIL}' || { printf 'bootstrap: EMAIL not set\n'; exit 100; }
 
 PKG sshpass
-
 CP sshkeys /tmp/
-
 CMD if test clean = '${OP}'; then /tmp/sshkeys clean; else mail -s "Pubkey for $(hostname)" '${EMAIL}' < "$(/tmp/sshkeys '${OP}')"; fi
 

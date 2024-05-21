@@ -10,7 +10,8 @@ do_create() {
   do_clean
   mkdir -p -m 0700 /root/.ssh
   openssl rand -base64 20 > "${key}.pw"
-  sshpass -f "${key}.pw" -P passphrase ssh-keygen -t ed25519 -f "${key}"
+  openssl genrsa -out "${key}" -passout "file:${key}.pw" 4096
+  sshpass -f "${key}.pw" ssh-keygen -y -f "${key}" > "${key}.pub"
   printf '%s\n' "${key}.pub"
 }
 
