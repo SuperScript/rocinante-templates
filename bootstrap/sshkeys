@@ -7,15 +7,19 @@ do_clean() {
 }
 
 do_create() {
-  do_clean "$@"
+  do_clean
   mkdir -p -m 0700 /root/.ssh
   openssl rand -base64 20 > "${key}.pw"
   sshpass -f "${key}.pw" ssh-keygen -t ed25519 -f "${key}"
   printf '%s\n' "${key}.pub"
 }
 
+do_init() {
+  test -f "${key}.pub" && printf '%s\n' "${key}.pub" || do_create
+}
+
 case "$1" in
-  clean|create)
+  clean|create|init)
     "do_$@"
     exit 0
     ;;
