@@ -2,7 +2,7 @@
 ARG OP=init
 ARG EMAIL=
 
-CMD if test clean != '${OP}'; then test -n '${EMAIL}' || exit 0; fi; printf 'bootstrap: EMAIL not set\n'; exit 100
+CMD test clean != '${OP}' || test -n '${EMAIL}' || { printf 'bootstrap: EMAIL not set\n'; exit 100; }
 
 PKG sshpass
 
