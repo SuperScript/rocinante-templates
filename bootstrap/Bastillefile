@@ -8,5 +8,5 @@ PKG sshpass
 
 CP sshkeys /tmp/
 
-CMD if test clean = '${OP}'; then /tmp/sshkeys clean; else mail -s "Pubkey for $(hostname)" '${EMAIL}' < "$(/tmp/sshkeys '${OP}'"; fi
+CMD if test clean = '${OP}'; then /tmp/sshkeys clean; else mail -s "Pubkey for $(hostname)" '${EMAIL}' < "$(/tmp/sshkeys '${OP}')"; fi
 
