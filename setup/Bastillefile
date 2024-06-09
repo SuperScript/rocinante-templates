@@ -4,7 +4,7 @@ ARG TEMPLATE=superscript/rocinante-private/laptop
 ARG PKG=no
 
 CMD GIT_SSH_COMMAND='ssh -i /root/.ssh/rocinante@$(hostname -s)' rocinante '${REPO}'
-CMD test '${PKG}' = 'build' || GIT_SSH_COMMAND='ssh -i /root/.ssh/rocinante@$(hostname -s)' rocinante template superscript/rocinante-private/pkg
+CMD test '${PKG}' = 'build' || GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s)" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante template superscript/rocinante-private/pkg
 
-CMD rocinante template ${TEMPLATE}
+CMD GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s)" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante template ${TEMPLATE}
 
