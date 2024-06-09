@@ -1,0 +1,10 @@
+# Send ssh key to enable use of private repos
+ARG REPO=git@github.com:superscript/rocinante-private
+ARG TEMPLATE=superscript/rocinante-private/laptop
+ARG PKG=no
+
+CMD GIT_SSH_COMMAND='ssh -i /root/.ssh/rocinante@$(hostname -s)' rocinante '${REPO}'
+CMD test '${PKG}' = 'build' || GIT_SSH_COMMAND='ssh -i /root/.ssh/rocinante@$(hostname -s)' rocinante template superscript/rocinante-private/pkg
+
+CMD rocinante template ${TEMPLATE}
+
