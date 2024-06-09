@@ -2,6 +2,6 @@
 ARG REPO=git@github.com:superscript/rocinante-private
 ARG TEMPLATE=superscript/rocinante-private/laptop
 
-CMD GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s)" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante bootstrap '${REPO}'
-CMD GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s)" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante template ${TEMPLATE}
+CMD GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s).pw" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante bootstrap '${REPO}'
+CMD GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s).pw" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante template ${TEMPLATE}
 
