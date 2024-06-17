@@ -1,6 +1,6 @@
 # Send ssh key to enable use of private repos
 ARG REPO=git@github.com:superscript/rocinante-private
-ARG TEMPLATE=superscript/rocinante-private/laptop
+ARG TEMPLATE=superscript/rocinante-private/devbox
 
 CMD GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s).pw" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante bootstrap '${REPO}'
 CMD GIT_SSH_COMMAND='sshpass -f "/root/.ssh/rocinante@$(hostname -s).pw" ssh -i "/root/.ssh/rocinante@$(hostname -s)"' rocinante template ${TEMPLATE}

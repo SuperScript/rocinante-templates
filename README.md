@@ -34,8 +34,8 @@ These steps build private packages which can then by pushed to a github repo for
 
 - Build overlay-ports: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE=superscript/rocinante-private/pkg`
 
-### Rocinante laptop
+### Rocinante devbox
 
-- Set up a laptop host: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE='superscript/rocinante-private/laptop --arg EMAIL=web@superscript.com'`
+- Set up a devbox host: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE='superscript/rocinante-private/devbox --arg EMAIL=web@superscript.com'`
 - Register user pubkeys rocinante@USER@$(hostname -s) as user in github.
 - Configure users: `rocinante template superscript/rocinante-private/users --arg OP=config`
