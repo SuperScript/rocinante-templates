@@ -42,3 +42,9 @@ It's unclear why we need to separate these next two steps, but it is empirically
 - Set up a devbox host: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE='superscript/rocinante-private/devbox --arg EMAIL=web@superscript.com'`
 - Register user pubkeys rocinante@USER@$(hostname -s) as user in github.
 - Configure users: `rocinante template superscript/rocinante-private/users --arg OP=config`
+
+### Manual config
+
+- Configure for hardware: example: `rocinante template superscript rocinante-private/huawei-matebook-x-pro`
+- Add sound for firefox: about:config `media.cubeb.backend oss`
+
