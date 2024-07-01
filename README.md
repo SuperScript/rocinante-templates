@@ -47,4 +47,7 @@ It's unclear why we need to separate these next two steps, but it is empirically
 
 - Configure for hardware: example: `rocinante template superscript rocinante-private/huawei-matebook-x-pro`
 - Add sound for firefox: about:config `media.cubeb.backend oss`
-
+- Configure firefox themes:
+    - sst: https://color.firefox.com/?theme=XQAAAAInAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xMDPsqvEueWr7d4b5dVg1ceDEqvlb1llaBCC8VlfUPFgQQSWLHyIhDzpb4tuL3FlHdQ45etv1BeJ492Kzu9JXBvCSwKKnwm4I4hPJSwD7Ox-r0-WtVQmeJxVSrUlLGr5uV9j2N5X4x4SrHGUI5YQKNXkbmlSHpxdQTAYzqlkGGI95ctfMxEjjsjVJDhj1EGtXYOSj-7cDrMhNc1Eu_P4H_bqkAAA
+    - openai: https://color.firefox.com/?theme=XQAAAAImAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xMDPsqvEueWr7d4b5dVg1ceDEqvlb1llaBCC8VlfUPFgQQSWLM8vlmOknxI4gnwKJG0WCZOYhQJhK4cKpCvTUHyPmwVURxaLW0_jMJM12bBQAwh8K64eAgBvBhoEwmJgYY9aKQJRc7WswFUhYUaYOjtPUUqRqDg_5jTzTZ1Fjgah1vz7CPSPmPS7E3ZjXuv6lhc3Gb3LPhX__UKRAA
+    - claude: https://color.firefox.com/?theme=XQAAAAInAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xMDPsqvEueWr7d4b5dVg1ceDEqvlb1llaBCC8VlfUPFgQQSWLHyIuNwDHTJSrYlp-6eVaV5Tp5dpxa4x_MK1JAm_mg3Etmw0jNC7QKulW-yTxK1tOsiK5OnxAhaxhBANMVeB84pBatMnUfJDqdp_qIzjh03iUEe84b770JgGZAeit3iZQhPLfBx5F146D2SxDsaOMaMbKPdvgWLHYi4L_-6qRA
