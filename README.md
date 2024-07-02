@@ -46,6 +46,9 @@ It's unclear why we need to separate these next two steps, but it is empirically
 ### Manual config
 
 - Configure for hardware: example: `rocinante template superscript rocinante-private/huawei-matebook-x-pro`
+- Configure for hardware: example: `rocinante template superscript rocinante-private/framework-laptop`
+- Add basic jails:
+    - `basti xapp sst firefox`
 - Add sound for firefox: about:config `media.cubeb.backend oss`
 - Configure firefox themes:
     - sst: https://color.firefox.com/?theme=XQAAAAInAQAAAAAAAABBqYhm849SCia2CaaEGccwS-xMDPsqvEueWr7d4b5dVg1ceDEqvlb1llaBCC8VlfUPFgQQSWLHyIhDzpb4tuL3FlHdQ45etv1BeJ492Kzu9JXBvCSwKKnwm4I4hPJSwD7Ox-r0-WtVQmeJxVSrUlLGr5uV9j2N5X4x4SrHGUI5YQKNXkbmlSHpxdQTAYzqlkGGI95ctfMxEjjsjVJDhj1EGtXYOSj-7cDrMhNc1Eu_P4H_bqkAAA
