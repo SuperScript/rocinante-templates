@@ -32,6 +32,10 @@
 ### Rocinante pkg
 These steps build private packages which can then by pushed to a github repo for use in setting up other hosts with the same OS release.
 
+- `mkdir -p /usr/local/etc/ssl/keys && chmod 0700 /usr/local/etc/ssl/keys`
+- Copy /usr/local/etc/ssl/keys/poudriere.key to the new poudriere host
+- `mkdir -p /usr/local/etc/ssl/certs`
+- Copy /usr/local/etc/ssl/certs/poudriere.cert to the new poudriere host
 - Build overlay-ports: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE=superscript/rocinante-private/pkg`
 
 ### Rocinante devbox
