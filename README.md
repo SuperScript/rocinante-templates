@@ -38,6 +38,11 @@ These steps build private packages which can then by pushed to a github repo for
 - Copy /usr/local/etc/ssl/certs/poudriere.cert to the new poudriere host
 - Build overlay-ports: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE=superscript/rocinante-private/pkg`
 
+To update overlay-ports:
+- basti start pkg
+- basti cmd pkg poudriere ports -u -p overlay_ports_public
+- basti stop pkg
+
 ### Rocinante devbox
 
 It's unclear why we need to separate these next two steps, but it is empirically necessary.
