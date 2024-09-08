@@ -22,9 +22,9 @@
 
 ### Rocinante Bootstrap
 
-- Fetch https://github.com/superscript/rocinante/archive/refs/tags/0.1.20240521.1.tar.gz
+- Fetch https://github.com/superscript/rocinante/archive/refs/tags/0.1.20240521.2.tar.gz
 - Untar and install.
-- `pkg install git-lfs`
+- `pkg install git-annex`
 - `rocinante bootstrap https://github.com/superscript/rocinante-templates`
 - `rocinante template superscript/rocinante-templates/bootstrap --arg EMAIL="ssh-pubkey-recipient"`
 - Register pubkey rocinante@$(hostname -s) received via email as sst-rocinante in github.
