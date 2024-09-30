@@ -16,7 +16,7 @@
 - Resolvers 1.1.1.1, 8.8.8.8.
 - Clock in UTC.
 - Start at boot: `sshd`, `ntpd`, `ntpd_sync_on_start`, `dumpdev`
-- No users.
+- User web.
 - Open shell
 - `freebsd-update fetch install --not-running-from-cron`
 
@@ -24,7 +24,7 @@
 
 - Fetch https://github.com/superscript/rocinante/archive/refs/tags/0.1.20240521.2.tar.gz
 - Untar and install.
-- `pkg install git-annex`
+- `pkg install hs-git-annex`
 - `rocinante bootstrap https://github.com/superscript/rocinante-templates`
 - `rocinante template superscript/rocinante-templates/bootstrap --arg EMAIL="ssh-pubkey-recipient"`
 - Register pubkey rocinante@$(hostname -s) received via email as sst-rocinante in github.
@@ -37,11 +37,18 @@ These steps build private packages which can then by pushed to a github repo for
 - `mkdir -p /usr/local/etc/ssl/certs`
 - Copy /usr/local/etc/ssl/certs/poudriere.cert to the new poudriere host
 - Build overlay-ports: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE=superscript/rocinante-private/pkg`
+- Install pw311-awscli
+- Create aws user pkg-HOSTNAME in group pkg-server
+- Add AWS IAM user and add to pkg-server group
+- Wait for AWS perms to update
+- cd /usr/local/pkg/poudriere-pkg/
+- Clone poudriere-pkg repo to /usr/local/pkg/poudriere-pkg
+- In the new repo, make sync FIXME: fill in details
 
 To update overlay-ports:
-- basti start pkg
-- basti cmd pkg poudriere ports -u -p overlay_ports_public
-- basti stop pkg
+- `basti start pkg`
+- `basti cmd pkg poudriere ports -u -p overlay_ports_public`
+- `basti stop pkg`
 
 ### Rocinante devbox
 
