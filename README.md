@@ -22,8 +22,8 @@
 
 ### Rocinante Bootstrap
 
-- Fetch https://github.com/superscript/rocinante/archive/refs/tags/0.1.20240521.2.tar.gz
-- Untar and install.
+- `fetch https://github.com/superscript/rocinante/archive/refs/tags/1.0.1.20251120.tar.gz`
+- Untar and `make install`.
 - `pkg install hs-git-annex`
 - `rocinante bootstrap https://github.com/superscript/rocinante-templates`
 - `rocinante template superscript/rocinante-templates/bootstrap --arg EMAIL="ssh-pubkey-recipient"`
@@ -54,7 +54,7 @@ To update overlay-ports:
 
 It's unclear why we need to separate these next two steps, but it is empirically necessary.
 
-- Set up a devbox host: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE='superscript/rocinante-private/pkg-client --arg PKG_PORTS=2024Q3'`
+- Set up a devbox host: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE='superscript/rocinante-private/pkg-client --arg PKG_PORTS=2025Q4'`
 - Set up a devbox host: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private --arg TEMPLATE='superscript/rocinante-private/devbox --arg EMAIL=web@superscript.com'`
 - Register user pubkeys rocinante@USER@$(hostname -s) as user in github.
 - Configure users: `rocinante template superscript/rocinante-private/users --arg OP=config`
