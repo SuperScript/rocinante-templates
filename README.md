@@ -39,12 +39,11 @@ These steps build private packages which can then by pushed to a github repo for
 - Copy /usr/local/etc/ssl/certs/poudriere-pkg.cert to the new poudriere host
 - Create poudriere jail (pkg): `roci poudriere`
 
-To update ports trees:
-- `roci poudriere-update`
-
 To build ports:
-- `roci poudriere-bulk (dry run, will borrow dependencies)
-- `roci poudriere-bulk --arg DRY_RUN='' (will build)
+- `roci bastille-update` (get latest sst.pkgs manifest)
+- `roci poudriere-update` (update ports for current pkg repo)
+- `roci poudriere-bulk` (dry run, will borrow dependencies)
+- `roci poudriere-bulk --arg DRY_RUN=''` (will build)
 
 ### Rocinante devbox
 
