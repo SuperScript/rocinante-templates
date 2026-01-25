@@ -22,16 +22,10 @@
 
 ### Bootstrap Rocinante
 
-<<<<<<< HEAD
-- `fetch https://github.com/superscript/rocinante/archive/9b3d956.tar.gz -o rocinante.tar.gz`
+- `fetch https://github.com/superscript/rocinante/archive/76ff85a5.tar.gz -o rocinante.tar.gz`
 - Untar and `make install`.
 - `pkg install hs-git-annex`
 - `rocinante bootstrap https://github.com/superscript/rocinante-templates.git`
-=======
-- Fetch https://github.com/superscript/rocinante/archive/refs/tags/0.1.20240521.2.tar.gz
-- Untar and install.
-- `rocinante bootstrap https://github.com/superscript/rocinante-templates`
->>>>>>> e7f1a5b (Start rucio updates)
 - `rocinante template superscript/rocinante-templates/bootstrap --arg EMAIL="ssh-pubkey-recipient"`
 - Register pubkey rocinante@$(hostname -s) received via email as sst-rocinante in github.
 - Set up base system: `rocinante template superscript/rocinante-templates/setup --arg REPO=git@github.com:superscript/rocinante-private.git`
@@ -39,4 +33,3 @@
 ### Execute Rocinante Setup
 
 Refer to `rocinante-private` for instructions.
-
