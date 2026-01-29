@@ -24,7 +24,7 @@
 
 - `fetch https://github.com/superscript/rocinante/archive/76ff85a5.tar.gz -o rocinante.tar.gz`
 - Untar and `make install`.
-- `pkg install hs-git-annex`
+- `pkg install git-lite`
 - `rocinante bootstrap https://github.com/superscript/rocinante-templates.git`
 - `rocinante template superscript/rocinante-templates/bootstrap --arg EMAIL="ssh-pubkey-recipient"`
 - Register pubkey rocinante@$(hostname -s) received via email as sst-rocinante in github.
